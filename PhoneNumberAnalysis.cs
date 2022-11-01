@@ -1,10 +1,12 @@
 using System;
 using System.Runtime.CompilerServices;
 
+
 public static class PhoneNumber
 {
     public static (bool IsNewYork, bool IsFake, string LocalNumber) Analyze(string phoneNumber)
     {
+
         var splitNumbers = phoneNumber.Split("-");
         (string NewYorkLocalCode, string prefixCode, string last4digits) separatedNumber = 
             (splitNumbers.GetValue(0)?.ToString(), splitNumbers.GetValue(1)?.ToString(), splitNumbers.GetValue(2)?.ToString());
@@ -28,10 +30,7 @@ public static class PhoneNumber
         }
 
         return (false, false, separatedNumber.last4digits);
-    }
 
-    public static bool IsFake((bool IsNewYork, bool IsFake, string LocalNumber) phoneNumberInfo)
-    {
         return phoneNumberInfo.IsFake;
     }
 }
